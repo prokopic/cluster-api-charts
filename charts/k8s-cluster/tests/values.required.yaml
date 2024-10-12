@@ -1,0 +1,6 @@
+controlPlaneRef:
+  apiVersion: cluster.example.com/v1beta9
+  kind: ExampleControlPlane
+infrastructureRef:
+  apiVersion: infrastructure.cluster.example.com/v1beta9
+  kind: ExampleCluster
