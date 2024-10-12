@@ -1,3 +1,16 @@
 # k8s-cluster-chart
 
-Helm chart with Cluster API core resources for deploying Kubernetes clusters
+Helm chart with Cluster API `Cluster` resource.
+
+## Usage
+
+### Required Helm values
+
+```yaml
+controlPlaneRef:
+  apiVersion: cluster.example.com/v1beta9
+  kind: ExampleControlPlane
+infrastructureRef:
+  apiVersion: infrastructure.cluster.example.com/v1beta9
+  kind: ExampleCluster
+```
