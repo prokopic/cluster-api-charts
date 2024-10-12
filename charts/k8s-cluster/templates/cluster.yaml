@@ -1,0 +1,17 @@
+apiVersion: cluster.x-k8s.io/v1beta1
+kind: Cluster
+metadata:
+  name: {{ include "k8s-cluster.metadata.name" . }}
+  namespace: {{ include "k8s-cluster.metadata.namespace" . }}
+  labels: {{- include "k8s-cluster.metadata.labels" . | nindent 4 }}
+spec:
+  controlPlaneRef:
+    apiVersion: {{ .Values.controlPlaneRef.apiVersion }}
+    kind: {{ .Values.controlPlaneRef.kind }}
+    name: {{ .Values.controlPlaneRef.name | default (include "k8s-cluster.metadata.name" .) }}
+    namespace: {{ .Values.controlPlaneRef.namespace | default (include "k8s-cluster.metadata.namespace" .) }}
+  infrastructureRef:
+    apiVersion: {{ .Values.infrastructureRef.apiVersion }}
+    kind: {{ .Values.infrastructureRef.kind }}
+    name: {{ .Values.infrastructureRef.name | default (include "k8s-cluster.metadata.name" .) }}
+    namespace: {{ .Values.infrastructureRef.namespace | default (include "k8s-cluster.metadata.namespace" .) }}
