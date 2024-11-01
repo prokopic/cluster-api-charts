@@ -1,16 +1,18 @@
-metadata:
-  name: "" # If not specified, .global.metadata.name is used
-  namespace: "" # If not specified, .global.metadata.namespace is used
+kubeadmcontrolplane:
+  metadata:
+    name: "" # If not specified, .global.metadata.name is used
+    namespace: "" # If not specified, .global.metadata.namespace is used
 
-kubernetesVersion: 1.31.0 # If not specified, .global.kubernetesVersion is used
-replicas: 3
+  spec:
+    version: 1.31.0 # If not specified, .global.kubernetesVersion is used
+    replicas: 3
 
-machineTemplate:
-  infrastructureRef:
-    apiVersion: ""
-    kind: ""
-    name: ""
-    namespace: ""
+    machineTemplate:
+      infrastructureRef:
+        apiVersion: ""
+        kind: ""
+        name: ""
+        namespace: ""
 
 #
 # Global values to are used across resources in this and other charts.
