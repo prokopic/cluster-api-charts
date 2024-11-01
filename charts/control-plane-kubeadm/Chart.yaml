@@ -12,7 +12,7 @@ description: A Helm chart with Cluster API KubeadmControlPlane resource
 # pipeline. Library charts do not define any templates and therefore cannot be deployed.
 type: application
 
-# This is the kubeadm-control-plane chart version.
+# This is the control-plane-kubeadm chart version.
 #
 # This version number should be incremented each time you make changes to the chart and its
 # templates, including the app version.
