@@ -2,7 +2,7 @@
 
 Helm charts with Cluster API resources:
 - capi-cluster with `Cluster` resource,
-- kubeadm-control-plane with `KubeadmControlPlane` resource.
+- control-plane-kubeadm with `KubeadmControlPlane` resource.
 
 ## Usage
 

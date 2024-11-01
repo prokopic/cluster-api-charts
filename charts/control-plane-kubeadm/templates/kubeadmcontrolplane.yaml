@@ -1,9 +1,9 @@
 apiVersion: controlplane.cluster.x-k8s.io/v1beta1
 kind: KubeadmControlPlane
 metadata:
-  name: {{ include "kubeadm.control-plane.metadata.name" . }}
-  namespace: {{ include "kubeadm.control-plane.metadata.namespace" . }}
-  labels: {{- include "kubeadm.control-plane.metadata.labels" . | nindent 4 }}
+  name: {{ include "control-plane-kubeadm.metadata.name" . }}
+  namespace: {{ include "control-plane-kubeadm.metadata.namespace" . }}
+  labels: {{- include "control-plane-kubeadm.metadata.labels" . | nindent 4 }}
 spec:
   version: {{ .Values.kubernetesVersion | default .Values.global.kubernetesVersion }}
   replicas: {{ .Values.replicas }}
@@ -18,5 +18,5 @@ spec:
     infrastructureRef:
       apiVersion: {{ .Values.machineTemplate.infrastructureRef.apiVersion }}
       kind: {{ .Values.machineTemplate.infrastructureRef.kind }}
-      name: {{ .Values.machineTemplate.infrastructureRef.name | default (include "kubeadm.control-plane.metadata.template-name" . ) }}
-      namespace: {{ .Values.machineTemplate.infrastructureRef.name | default (include "kubeadm.control-plane.metadata.namespace" . ) }}
+      name: {{ .Values.machineTemplate.infrastructureRef.name | default (include "control-plane-kubeadm.metadata.template-name" . ) }}
+      namespace: {{ .Values.machineTemplate.infrastructureRef.name | default (include "control-plane-kubeadm.metadata.namespace" . ) }}

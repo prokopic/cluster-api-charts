@@ -1,3 +1,0 @@
-Get the Cluster resource by running these commands:
-
-kubectl get cluster --namespace {{ include "kubeadm.control-plane.metadata.namespace" . }} {{ include "kubeadm.control-plane.metadata.name" . }}
