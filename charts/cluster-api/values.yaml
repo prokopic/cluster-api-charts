@@ -3,14 +3,15 @@ cluster:
     name: "" # If not specified, Helm release name is used
     namespace: "" # If not specified, Helm release namespace is used
 
-  controlPlaneRef:
-    apiVersion: ""
-    kind: ""
-    name: "" # If not specified, "cluster-api.metadata.name" template is used
-    namespace: "" # If not specified, "cluster-api.metadata.name" template is used
+  spec:
+    controlPlaneRef:
+      apiVersion: ""
+      kind: ""
+      name: "" # If not specified, "cluster-api.metadata.name" template is used
+      namespace: "" # If not specified, "cluster-api.metadata.name" template is used
 
-  infrastructureRef:
-    apiVersion: ""
-    kind: ""
-    name: "" # If not specified, "cluster-api.metadata.name" template is used
-    namespace: "" # If not specified, "cluster-api.metadata.name" template is used
+    infrastructureRef:
+      apiVersion: ""
+      kind: ""
+      name: "" # If not specified, "cluster-api.metadata.name" template is used
+      namespace: "" # If not specified, "cluster-api.metadata.name" template is used
