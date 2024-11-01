@@ -1,0 +1,3 @@
+Get the Cluster resource by running these commands:
+
+kubectl get cluster --namespace {{ include "cluster-api.metadata.namespace" . }} {{ include "cluster-api.metadata.name" . }}

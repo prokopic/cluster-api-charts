@@ -1,5 +1,5 @@
 apiVersion: v2
-name: capi-cluster
+name: cluster-api
 description: A Helm chart with Cluster API core Cluster resources
 
 # A chart can be either an 'application' or a 'library' chart.
@@ -12,7 +12,7 @@ description: A Helm chart with Cluster API core Cluster resources
 # pipeline. Library charts do not define any templates and therefore cannot be deployed.
 type: application
 
-# This is the capi-cluster chart version.
+# This is the cluster-api chart version.
 #
 # This version number should be incremented each time you make changes to the chart and its
 # templates, including the app version.
