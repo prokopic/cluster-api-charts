@@ -1,6 +1,8 @@
 # capi-chart
 
-Helm chart with Cluster API `Cluster` resource.
+Helm charts with Cluster API resources:
+- capi-cluster with `Cluster` resource,
+- kubeadm-control-plane with `KubeadmControlPlane` resource.
 
 ## Usage
 
