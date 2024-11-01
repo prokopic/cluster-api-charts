@@ -3,7 +3,7 @@
     We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 */}}
 {{- define "cluster-api.metadata.name" -}}
-{{- .Values.metadata.name | default .Release.Name | trunc 63 | trimSuffix "-" }}
+{{- .Values.cluster.metadata.name | default .Release.Name | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
@@ -11,7 +11,7 @@
     We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
 */}}
 {{- define "cluster-api.metadata.namespace" -}}
-{{- .Values.metadata.namespace | default .Release.Namespace | trunc 63 | trimSuffix "-" }}
+{{- .Values.cluster.metadata.namespace | default .Release.Namespace | trunc 63 | trimSuffix "-" }}
 {{- end }}
 
 {{/*
