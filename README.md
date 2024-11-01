@@ -1,4 +1,4 @@
-# k8s-cluster-chart
+# capi-chart
 
 Helm chart with Cluster API `Cluster` resource.
 
