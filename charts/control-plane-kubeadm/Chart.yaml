@@ -1,6 +1,6 @@
 apiVersion: v2
 name: control-plane-kubeadm
-description: A Helm chart with Cluster API KubeadmControlPlane resource
+description: A Helm chart with Kubeadm control plane resources
 
 # A chart can be either an 'application' or a 'library' chart.
 #
