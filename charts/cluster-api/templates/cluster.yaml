@@ -6,12 +6,12 @@ metadata:
   labels: {{- include "cluster-api.metadata.labels" . | nindent 4 }}
 spec:
   controlPlaneRef:
-    apiVersion: {{ .Values.controlPlaneRef.apiVersion }}
-    kind: {{ .Values.controlPlaneRef.kind }}
-    name: {{ .Values.controlPlaneRef.name | default (include "cluster-api.metadata.name" .) }}
-    namespace: {{ .Values.controlPlaneRef.namespace | default (include "cluster-api.metadata.namespace" .) }}
+    apiVersion: {{ .Values.cluster.spec.controlPlaneRef.apiVersion }}
+    kind: {{ .Values.cluster.spec.controlPlaneRef.kind }}
+    name: {{ .Values.cluster.spec.controlPlaneRef.name | default (include "cluster-api.metadata.name" .) }}
+    namespace: {{ .Values.cluster.spec.controlPlaneRef.namespace | default (include "cluster-api.metadata.namespace" .) }}
   infrastructureRef:
-    apiVersion: {{ .Values.infrastructureRef.apiVersion }}
-    kind: {{ .Values.infrastructureRef.kind }}
-    name: {{ .Values.infrastructureRef.name | default (include "cluster-api.metadata.name" .) }}
-    namespace: {{ .Values.infrastructureRef.namespace | default (include "cluster-api.metadata.namespace" .) }}
+    apiVersion: {{ .Values.cluster.spec.infrastructureRef.apiVersion }}
+    kind: {{ .Values.cluster.spec.infrastructureRef.kind }}
+    name: {{ .Values.cluster.spec.infrastructureRef.name | default (include "cluster-api.metadata.name" .) }}
+    namespace: {{ .Values.cluster.spec.infrastructureRef.namespace | default (include "cluster-api.metadata.namespace" .) }}

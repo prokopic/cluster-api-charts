@@ -5,8 +5,8 @@ metadata:
   namespace: {{ include "control-plane-kubeadm.metadata.namespace" . }}
   labels: {{- include "control-plane-kubeadm.metadata.labels" . | nindent 4 }}
 spec:
-  version: {{ .Values.kubernetesVersion | default .Values.global.kubernetesVersion }}
-  replicas: {{ .Values.replicas }}
+  version: {{ .Values.kubeadmcontrolplane.spec.version | default .Values.global.kubernetesVersion }}
+  replicas: {{ .Values.kubeadmcontrolplane.spec.replicas }}
   kubeadmConfigSpec:
     clusterConfiguration:
       apiServer:
@@ -16,7 +16,7 @@ spec:
           - 0.0.0.0
   machineTemplate:
     infrastructureRef:
-      apiVersion: {{ .Values.machineTemplate.infrastructureRef.apiVersion }}
-      kind: {{ .Values.machineTemplate.infrastructureRef.kind }}
-      name: {{ .Values.machineTemplate.infrastructureRef.name | default (include "control-plane-kubeadm.metadata.template-name" . ) }}
-      namespace: {{ .Values.machineTemplate.infrastructureRef.name | default (include "control-plane-kubeadm.metadata.namespace" . ) }}
+      apiVersion: {{ .Values.kubeadmcontrolplane.spec.machineTemplate.infrastructureRef.apiVersion }}
+      kind: {{ .Values.kubeadmcontrolplane.spec.machineTemplate.infrastructureRef.kind }}
+      name: {{ .Values.kubeadmcontrolplane.spec.machineTemplate.infrastructureRef.name | default (include "control-plane-kubeadm.metadata.template-name" . ) }}
+      namespace: {{ .Values.kubeadmcontrolplane.spec.machineTemplate.infrastructureRef.name | default (include "control-plane-kubeadm.metadata.namespace" . ) }}

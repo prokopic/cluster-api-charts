@@ -1,4 +1,6 @@
-machineTemplate:
-  infrastructureRef:
-    apiVersion: infrastructure.cluster.example.com/v1beta9
-    kind: ExampleMachineTemplate
+kubeadmcontrolplane:
+  spec:
+    machineTemplate:
+      infrastructureRef:
+        apiVersion: infrastructure.cluster.example.com/v1beta9
+        kind: ExampleMachineTemplate
