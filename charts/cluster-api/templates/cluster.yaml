@@ -3,7 +3,8 @@ kind: Cluster
 metadata:
   name: {{ include "cluster-api.metadata.name" . }}
   namespace: {{ include "cluster-api.metadata.namespace" . }}
-  labels: {{- include "cluster-api.metadata.labels" . | nindent 4 }}
+  labels:
+    {{- include "cluster-api.metadata.labels" . | indent 4 }}
 spec:
   controlPlaneRef:
     apiVersion: {{ .Values.cluster.spec.controlPlaneRef.apiVersion }}

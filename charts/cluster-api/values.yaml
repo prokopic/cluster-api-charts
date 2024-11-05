@@ -1,3 +1,12 @@
+global:
+  kubernetesVersion: ""
+  bootstrap:
+    apiVersion: ""
+    configTemplateKind: ""
+  infrastructure:
+    apiVersion: ""
+    machineTemplateKind: ""
+
 cluster:
   metadata:
     name: "" # If not specified, Helm release name is used
@@ -15,3 +24,5 @@ cluster:
       kind: ""
       name: "" # If not specified, "cluster-api.metadata.name" template is used
       namespace: "" # If not specified, "cluster-api.metadata.name" template is used
+
+machineDeployments: []
