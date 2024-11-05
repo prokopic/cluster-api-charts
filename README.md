@@ -1,18 +1,10 @@
 # capi-chart
 
 Helm charts with Cluster API resources:
-- cluster-api with `Cluster` resource,
+- cluster-api with `Cluster` and `MachineDeployments` resources,
 - control-plane-kubeadm with `KubeadmControlPlane` resource.
 
 ## Usage
 
-### Required Helm values
-
-```yaml
-controlPlaneRef:
-  apiVersion: cluster.example.com/v1beta9
-  kind: ExampleControlPlane
-infrastructureRef:
-  apiVersion: infrastructure.cluster.example.com/v1beta9
-  kind: ExampleCluster
-```
+- [cluster-api chart usage](cluster-api#usage)
+- [control-plane-kubeadm chart usage](control-plane-kubeadm#usage)

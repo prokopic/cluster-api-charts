@@ -1,0 +1,34 @@
+{{- range $name, $resource := .Values.machineDeployments }}
+---
+apiVersion: cluster.x-k8s.io/v1beta1
+kind: MachineDeployment
+metadata:
+  name: {{ include "cluster-api.metadata.name" $ }}-{{ $name }}
+  namespace: {{ include "cluster-api.metadata.namespace" $ }}
+  labels:
+    {{- include "cluster-api.metadata.labels" $ | indent 4 }}
+spec:
+  clusterName: {{ include "cluster-api.metadata.name" $ }}
+  replicas: {{ $resource.spec.replicas | default 3 }}
+  selector:
+    matchLabels:
+      {{- include "cluster-api.selectorLabels" $ | indent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "cluster-api.metadata.labels" $ | indent 8 }}
+    spec:
+      clusterName: {{ include "cluster-api.metadata.name" $ }}
+      version: {{ $resource.spec.template.spec.version | default $.Values.global.kubernetesVersion }}
+      bootstrap:
+        configRef:
+          apiVersion: {{ $resource.spec.template.spec.bootstrap.configRef.apiVersion | default $.Values.global.bootstrap.apiVersion }}
+          kind: {{ $resource.spec.template.spec.bootstrap.configRef.kind | default $.Values.global.bootstrap.configTemplateKind }}
+          name: {{ $resource.spec.template.spec.bootstrap.configRef.name | default (printf "%s-%s" (include "cluster-api.metadata.name" $) $name) }}
+          namespace: {{ $resource.spec.template.spec.bootstrap.configRef.namespace | default (include "cluster-api.metadata.namespace" $) }}
+      infrastructureRef:
+        apiVersion: {{ $resource.spec.template.spec.infrastructureRef.apiVersion | default $.Values.global.infrastructure.apiVersion }}
+        kind: {{ $resource.spec.template.spec.infrastructureRef.kind | default $.Values.global.infrastructure.machineTemplateKind }}
+        name: {{ $resource.spec.template.spec.infrastructureRef.name | default (printf "%s-%s" (include "cluster-api.metadata.namespace" $) $name) }}
+        namespace: {{ $resource.spec.template.spec.infrastructureRef.namespace | default (include "cluster-api.metadata.namespace" $) }}
+{{- end }}
